@@ -1,0 +1,455 @@
+% Author:  Brad Burkman
+% Date:  21 August 2018
+% Notes for Fall 2018 CSCE 561
+%	Data Storage and Retrieval
+%	Dr. Aminal Islam
+
+\documentclass[11pt]{article}
+\usepackage{tikz}
+\usepackage{pgfmath}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{hyperref}
+\setlength{\pdfpageheight}{11in}
+\setlength{\textheight}{9in}
+\setlength{\voffset}{-1in}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparpush}{0pt}
+\setlength{\textwidth}{6.5in}
+
+\pagestyle{empty}
+\begin{document}
+\setlength{\parindent}{0pt}
+\begin{spacing}{1.2}
+
+%%%%
+%
+%  Put the name of your main file in the brackets after "\input" below.
+%
+%%%%%
+
+Brad Burkman's Notes for
+
+\qquad CSCE 561 Data Storage and Retrieval
+
+\qquad Dr. Aminal Islam
+
+\qquad Fall 2018
+
+\vskip 12pt
+
+\tableofcontents
+
+\section{Monday 20 August:  Introduction}
+
+Slides from first day are on Moodle.  
+
+\vskip 12pt
+
+Professor Dr. Aminal Islam
+
+\qquad Natural Language Processing (NLP)
+
+\qquad Data Mining
+
+\qquad Machine Learning 
+
+\qquad Artificial Intellgence
+
+\qquad Data Analytics
+
+\qquad Word Segmentation (2007)
+
+\qquad Textual Error Correction
+
+\vskip 12pt
+
+Steve Jobs:  ``Creativity is just connecting things.''
+
+\qquad
+
+When something doesn't work in your research, you're on the right track.  
+
+\vskip 12pt
+
+Final product of course will be a research paper
+
+\qquad Pick two articles from ACM SIGIR (Special Interest Group on Information Retrieval) 2018
+
+\qquad Write a review of each, and present.
+
+\qquad Find a problem that leads to an original discovery.  
+
+\qquad Write it up.
+
+\vskip 12pt
+
+Text:  {\it Introduction to Information Retrieval} by Christopher D. Manning et al. 
+
+\url{https://nlp.stanford.edu/IR-book/}
+
+
+\vskip 12pt
+
+Classmates
+\vskip 6pt
+
+\begin{tabular}{*6{p{1in}}}
+	\cr
+\end{tabular}
+
+
+\section{Notes from Skimming SIGIR'18 Abstracts}
+
+{\bf Sessions}
+
+Keynotes
+
+1A:  New IR Applications
+
+1B:  Log Analysis
+
+1C:  Prediction
+
+1D:  Learning to Rank I
+
+2A:  Sentiment and Opinion
+
+2B:  Social
+
+2C:  App Search and Recommendation
+
+2D:  Conversational Systems
+
+3A:  Social Good
+
+3B:  Privacy
+
+3C: Question Answering
+
+3D:  Learning to Rank II
+
+4A:  Fairness and Robustness
+
+4B:  Behavior
+
+4C:  Medical and Legal IR
+
+4D:  Recommender Systems - Methods
+
+5A:  Location and Trajectory
+
+5B:   Entities
+
+5C:  New Metrics
+
+5D:  Recommender Systems - Applications
+
+6A:  Evaluation
+
+6B:: Hashing and Embedding
+
+6C:  Knowledge Bases/Graphs
+
+6D:  Mobile User Behavior
+
+7A:  Crowdsourcing and Assessment
+
+7B:  Content and Semantics
+
+7C:  Interfaces
+
+Short Research Papers I
+
+Short Research Papers II
+
+Demonstration Papers I
+
+Demonstration Papers II
+
+Sirip:  Industry Days
+
+Tutorials
+
+Workshops
+
+Doctoral Consortium
+
+
+
+
+
+\
+
+Knowledge Graphs (KG)
+
+Knowledge Bases/Graphs
+
+The potential parent-child relationships linking the new concepts to the existing ones are then predicted using a set of semantic and graph features.
+
+
+\section{Wednesday 22 August:  Information Retrieval (IR)}
+
+Jesse and Nusrat
+
+Shekufeh
+
+\
+
+Is an image a document?  Not the image itself, but the metadata is.  
+
+\
+
+Comparing the query text to the document text and determining what is a good match is the {\it core issue} of IR.  
+
+\
+
+Google Trigram Model for Relatedness  \url{ares.research.cs.dal.ca/gtm/}
+
+\
+
+SemEval annual competition since 2012.  International Workshop on Semantic Evaluation, related to the Association for Computational Linguistics.  
+
+\
+
+Three components of a search algorithm:
+
+Document Representation
+
+Query Representation
+
+Retrieval Model or Ranking Model.  
+
+\
+
+``corpus'' (singluar) ``corpora'' (plural)
+
+\
+
+Concerns in IR:   Relevance and Efficiency
+
+\
+
+{\bf Relevance}
+
+Optimized based on location
+
+Proper subject
+
+Timely
+
+Authoritative, based on other sites linking to it.  
+
+Satisfying goals of the user.  
+
+\
+
+``Bag of Words'':  Frequency count, no word order.  
+
+\
+
+{\bf Intelligent IR}
+
+
+Takes into account the meaning of the words used.  
+
+Order of words
+
+Indirect feedback
+
+Trustworthiness
+
+\
+
+IR is not just web search.  
+
+\section{Monday 27 August:  }
+
+Reviewing Wednesday:
+
+\qquad Main concerns in IR:  Relevance and Efficiency
+
+\qquad Three components of a search algorithm:  
+
+\qquad \qquad Document Representation
+
+\qquad \qquad Query Representation
+
+\qquad \qquad Ranking Model (Retrieval Model)
+
+\
+
+{\bf Simplicity} is more important than relevance or efficiency.  
+
+Google front page is getting simpler over time.  
+
+\
+
+{\bf Dimensions of IR}
+
+Different media, types of search applications, tasks
+
+\qquad Video, Photos, Music, Speech
+
+\qquad Like text, content is difficult to describe and compare.  
+
+
+Recommendation Systems (Amazon, Netflix)
+
+Question Answering
+
+\qquad Information Extraction Problem
+
+Text Mining 
+
+\qquad Topic Modeling
+	
+\qquad ``Stock words'' v/s ``functional words''
+
+\
+
+\qquad Text Clustering:  No labels, Unsupervised learning
+
+\qquad Text Categorization/Classification:  Labels, Machine learning
+
+\qquad NER, Named Entity Recognition
+
+Automated Document Categorization
+
+Information Filtering (Spam Filtering)
+
+Automated Document Clustering
+
+Information Integration
+
+\qquad Database Schema Mapping for merging databases
+
+\
+
+At the end of the course, we'll talk about data mining methods.  
+
+\
+
+{\bf Summarization} can be {\it Extractive} or {\it Abstractive}
+
+\
+
+\begin{tabular}{p{1in}p{5in}}
+Extractive &  Find $n$ most important sentences.  \cr
+
+& Order the sentences based on their importance.  \cr
+
+& Don't change the sentences.  \cr
+Abstractive &  Change, merge sentences.  Summarize.  {\it Natural Language Generation (NLG)} \cr
+\end{tabular}
+
+\
+
+Text Mining / Text Analytics
+
+\
+
+{\bf History of IR}
+
+\begin{tabular}{p{3cm}p{15cm}}
+	1960's - 1970's &
+	Text Retrieval Systems
+	
+	Law and Medicine
+	
+	\qquad Finding precedents
+	
+	\qquad Many law firms have their own proprietary search systems
+	
+	Boolean and Vector-space Models
+	
+	Professor Salton at Cornell
+	\cr
+	1980's &
+	Large document database systems
+	
+	\qquad Lexis-Nexis
+	
+	\qquad Dialog
+	
+	\qquad MEDLINE / PubMed
+	\cr
+	1990's &
+	Searching FTP'able documents
+	
+	\qquad Archie
+	
+	\qquad WAIS
+	
+	Searching WWW
+	
+	\qquad Lycos
+	
+	\qquad Yahoo
+	
+	\qquad AltaVista
+	
+	Organized Competition
+	
+	\qquad NIST TREC
+	
+	Recommender Systems
+	
+	\qquad Ringo
+	
+	\qquad Amazon
+	
+	\qquad Net Perceptions
+	
+	Automated Text Categorization and Clustering	
+\end{tabular}
+
+\
+
+{\bf Anecdotes}
+
+\
+
+Online advertising last year, \$83B USD
+
+Surpassed cable TV revenue last year.  
+
+\
+
+Most popular Google search query as of 2015, and motivator for the creation of Google Image Search.  
+
+``Jennifer Lopez's Green Dress.''
+
+\
+
+Why did Google beat Yahoo?
+
+Connected things.  
+
+Incorporated user feedback.  
+
+\
+
+Questions to Alexa are usually {\it very} frequently asked questions.  Alexa doesn't even send the speech to Apple for parsing and results.  It already has them in memory.  As Alexa has more experience with the user, it becomes even more {\bf pseudoefficient.}
+
+\
+
+
+
+\end{spacing}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
